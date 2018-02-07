@@ -1,0 +1,7 @@
+If you'd like to try the new version:
+
+1. Download the latest archive at Releases · mikalhart/galileo-Servo · GitHub
+
+2. Unzip the archive and use the two contained files (Servo.h and Servo.cpp) to overwrite those in ../hardware/arduino/x86/libraries/Servo.
+
+3. Exit the Arduino IDE software and restart it.
