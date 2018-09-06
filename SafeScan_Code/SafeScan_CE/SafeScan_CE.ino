@@ -10,7 +10,7 @@ Hardware:
     Alternative: 1x multi-color LED Kingbright L-154A4SURKQBDZGC (red/green/blue) with 220 ohm(r/g) and 91ohm (b) resistors
 2x Push Button (1x internal, 1x external)
 1x Fingerprint Scanner - 5V TTL GT-511C1R (https://www.sparkfun.com/products/13007) (Pinout: left=>right: 1 = TX, 2 = Rx, 3 = Gnd, 4 = VIn)
-	It uses 3.3v logic instead of the Arduino’s 5v. Use a voltage divider Arduino tx – R1(560ohm) – FPS rx – R2(1kohm) – ground (see diagram)
+	It uses 3.3v logic instead of the Arduinoï¿½s 5v. Use a voltage divider Arduino tx ï¿½ R1(560ohm) ï¿½ FPS rx ï¿½ R2(1kohm) ï¿½ ground (see diagram)
 1x Servo
 1x 4xAA Battery block
 
@@ -124,10 +124,10 @@ https://www.karlssonrobotics.com/tutorials/arduino/workaround-for-servo-jitter-o
     const int light_ledPin = 8;                 // define PIN number of the internal lighting LED
 
     const int servo_Pin =  9;                   // define PWM PIN for servo
-    const int servo_pos_opened = 105;           // define servo position in degree (0°-180°)
-    //const int servo_pos_opened = 1000;          // define servo position in Microseconds (0°= 1000, 180°=2000)
-    const int servo_pos_closed = 15;            // define servo position in degree (0°-180°)
-    //const int servo_pos_closed = 2000;          // define servo position in Microseconds (0°= 1000, 180°=2000)
+    //const int servo_pos_opened = 105;           // define servo position in degree (0ï¿½-180ï¿½)
+    const int servo_pos_opened = 1000;          // define servo position in Microseconds (0ï¿½= 1000, 180ï¿½=2000)
+    //const int servo_pos_closed = 15;            // define servo position in degree (0ï¿½-180ï¿½)
+    const int servo_pos_closed = 2000;          // define servo position in Microseconds (0ï¿½= 1000, 180ï¿½=2000)
 
     const int grn_ledPin =  10;                 // define PIN number of the green LED
     const int red_ledPin =  11;                 // define PIN number of the red LED
@@ -171,11 +171,11 @@ https://www.karlssonrobotics.com/tutorials/arduino/workaround-for-servo-jitter-o
 //===Routine for servo move to open and close the lock
     void open_close()
     {
-      lock_operator.write(servo_pos_opened);                 // move to "opened" position to release lock - in °
+      lock_operator.write(servo_pos_opened);                 // move to "opened" position to release lock - in ï¿½
     //lock_operator.writeMicroseconds(servo_pos_opened);     // move to "opened" position to release lock - in microseconds
       fps.SetLED(false);
       delay(2000);                               // keep the position for 2 seconds
-      lock_operator.write(servo_pos_closed);                 // move back to "closed" position - in °
+      lock_operator.write(servo_pos_closed);                 // move back to "closed" position - in ï¿½
     //lock_operator.writeMicroseconds(servo_pos_opened);     // move to "opened" position to release lock - in microseconds
       ledblink(1,10000,10,light_ledPin);                     // turn on internal lighting at light_ledPin
       delay(10000);                                          // wait 10 seconds to make sure everything is clear
