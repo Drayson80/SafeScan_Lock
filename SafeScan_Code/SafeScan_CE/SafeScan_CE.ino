@@ -9,8 +9,14 @@ Hardware:
 1x LED green with 220 ohm resistor
     Alternative: 1x multi-color LED Kingbright L-154A4SURKQBDZGC (red/green/blue) with 220 ohm(r/g) and 91ohm (b) resistors
 2x Push Button (1x internal, 1x external)
+<<<<<<< HEAD:SafeScan_Code/SafeScan_CE/SafeScan_CE.ino
 1x Fingerprint Scanner - 5V TTL GT-511C1R (https://www.sparkfun.com/products/13007) (Pinout: left=>right: 1 = TX, 2 = Rx, 3 = Gnd, 4 = VIn)
 	It uses 3.3v logic instead of the Arduinoï¿½s 5v. Use a voltage divider Arduino tx ï¿½ R1(560ohm) ï¿½ FPS rx ï¿½ R2(1kohm) ï¿½ ground (see diagram)
+=======
+1x Fingerprint Scanner - 5V TTL GT-511C1R (https://www.sparkfun.com/products/13007) (Pinout: left=>right: 1 = TX (blk), 2 = Rx, 3 = Gnd, 4 = VIn)
+	It uses 3.3v logic instead of the Arduino’s 5v. Use a voltage divider Arduino tx – R1(560ohm) – FPS rx – R2(1kohm) – ground (see diagram)
+	https://learn.sparkfun.com/tutorials/fingerprint-scanner-hookup-guide
+>>>>>>> ef72ba573918d3125f93452e52410a0fe2b5390e:SafeScan_Code/SafeScan_CE.ino
 1x Servo
 1x 4xAA Battery block
 
