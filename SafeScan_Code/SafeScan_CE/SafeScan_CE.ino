@@ -181,7 +181,8 @@ https://www.karlssonrobotics.com/tutorials/arduino/workaround-for-servo-jitter-o
     //lock_operator.writeMicroseconds(servo_pos_opened);     // move to "opened" position to release lock - in microseconds
       ledblink(1,10000,10,light_ledPin);                     // turn on internal lighting at light_ledPin
       delay(10000);                                          // wait 10 seconds to make sure everything is clear
-      digitalWrite(relaisPin, LOW);                          // cut power on arduino to put it "sleep"
+      digitalWrite(relaisPin, LOW);                          // if Transistors (NPN/PNP) are used - cut power on arduino to put it "sleep"
+	  //digitalWrite(relaisPin, HIGH);                          // if mechanical Relais is used - cut power on arduino to put it "sleep"
     }
 
 //===Simple helper function to blink an led in various patterns
@@ -271,7 +272,8 @@ https://www.karlssonrobotics.com/tutorials/arduino/workaround-for-servo-jitter-o
   ledblink(1,200,20,red_ledPin);                                      // flash red_ledPin 1 times
   fps.SetLED(false);
   delay(5000);                                                      // wait 5 seconds to make sure everything is clear
-  digitalWrite(relaisPin, LOW);                                      // cut power on arduino to put it "sleep"
+      digitalWrite(relaisPin, LOW);                          // if Transistors (NPN/PNP) are used - cut power on arduino to put it "sleep"
+	  //digitalWrite(relaisPin, HIGH);                          // if mechanical Relais is used - cut power on arduino to put it "sleep"
 }
     
 //===Routine for delete all stored fingerprints
@@ -290,7 +292,8 @@ https://www.karlssonrobotics.com/tutorials/arduino/workaround-for-servo-jitter-o
           fps.Close();
           ledblink(10,200,100,red_ledPin);                                  // flash red_ledPin flashes 10 times to confirm operation 
           delay(5000);                                                      // wait 5 seconds to make sure everything is clear
-          digitalWrite(relaisPin, LOW);                                      // cut power on arduino to put it "sleep"
+      digitalWrite(relaisPin, LOW);                          // if Transistors (NPN/PNP) are used - cut power on arduino to put it "sleep"
+	  //digitalWrite(relaisPin, HIGH);                          // if mechanical Relais is used - cut power on arduino to put it "sleep"
     }
 
 //===Routine compare a finger print with stored ones
@@ -321,7 +324,8 @@ https://www.karlssonrobotics.com/tutorials/arduino/workaround-for-servo-jitter-o
                         ledblink(2,200,200,red_ledPin);                 // flash red_ledPin 2 times
                 fps.SetLED(false);
                         delay(10000);                                   // wait 10 seconds to block new unlock trial
-                digitalWrite(relaisPin, LOW);                   // cut power on arduino to put it "sleep"
+                        digitalWrite(relaisPin, LOW);                          // if Transistors (NPN/PNP) are used - cut power on arduino to put it "sleep"
+                      	//digitalWrite(relaisPin, HIGH);                          // if mechanical Relais is used - cut power on arduino to put it "sleep"
 			//...
 		}
         }
@@ -340,7 +344,8 @@ void setup()
 {
   // initialize relais:
   pinMode(relaisPin, OUTPUT);
-  digitalWrite(relaisPin, HIGH);
+  digitalWrite(relaisPin, HIGH);                 // if Transistors (NPN/PNP) are used
+  //digitalWrite(relaisPin, LOW);                 // if mechanical Relais is used
   
   // initialize buttons:
   pinMode(enroll_button_Pin, INPUT);              // initialize the button pins as a input
@@ -370,7 +375,8 @@ void loop()
 {
   if (millis() > 30000)
   {
-    fps.SetLED(true);digitalWrite(relaisPin, LOW);               // cut power on arduino to put it "sleep" if no action for more than 30 sec
+    fps.SetLED(true);digitalWrite(relaisPin, LOW);               // if Transistors (NPN/PNP) are used - cut power on arduino to put it "sleep" if no action for more than 30 sec
+	//fps.SetLED(true);digitalWrite(relaisPin, HIGH);               // if mechanical Relais is used - cut power on arduino to put it "sleep" if no action for more than 30 sec
     }
       
 //========ACTIVATE functions on startup
