@@ -1,0 +1,59 @@
+
+Gun Safe Bio 
+=============================================================================================================
+
+  Storing Fingerprints:
+    - Activate enroll via push button "enroll_button"
+    - LED green flashes 4 times
+    - Fingerprint needs to get scanned 3 times
+       #1
+       - fingerprint LED starts glowing
+       - if first scan is ok
+            - fingerprint LED ends glowing
+            - green LED flashes flashes 1 times
+       - else red LED flashes 1 times
+       #2
+       - fingerprint LED starts glowing
+       - if second scan is ok
+            - fingerprint LED ends glowing
+            - green LED flashes flashes 2 times
+       - else red LED flashes 2 times fast
+       #3
+       - fingerprint LED starts glowing
+       - if third scan is ok
+           - fingerprint LED ends glowing
+           - green LED flashes flashes 3 times
+       - else red LED flashes 3 times fast
+    - if scanning sequence is ok
+       - LED green flashes 2 times long
+       (- Arduino enters sleep mode)
+    - else red LED flashes 2 times long
+
+========================================================================  
+
+  Delete ALL stored Fingerprints:
+      - Activate delete sequence via push button "enroll_button" held for 5 seconds
+      - LED red flashes 10 times
+      - confirm delete sequence via push button "enroll_button"
+      - LED red flashes 5 times
+      - Run del routine, pause for 3 seconds
+      - LED green flashes 10 times to confirm delete sequence
+
+========================================================================
+
+  Operation:
+    - Push button "activate_button" wakes up Arduino and initiate opening sequence
+    - fingerprint LED starts glowing
+    - Scan finger
+      - Compare fingerprint with database
+        - if fingerprint is ok
+            - flash green LED 3 times
+            - move servo to open lock
+            - move servo to initial position 2 second after activation
+			- activate internal LED light for 10 sec.
+        - else (fingerprint is nok) 
+            - flash red LED 5 times fast (beepbeepbeepbeepbeep)
+            - block operation for 20 seconds
+    - set Arduino in sleep mode
+
+=============================================================================================================
